@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}{%endblock title%}</title>
+  <link rel="icon" type="image/png" href="../assets/img/VoleskaIcon.png">
+  <link rel="shortcut icon" href="../assets/img/VoleskaIcon.ico" />
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="../assets/css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  {% block css %}{% endblock css %}
+</head>
+<body>
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg setPink navbar-dark scrolling-navbar fixed-top">
+
+      <!-- Navbar brand -->
+      <a class="navbar-brand mb-1 wow fadeInLeft" href="/"> <img src="../assets/img/VoleskaWhiteTitle.png" height="50" alt="Voleska logo"></a>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler third-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
+        aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon3"><span></span><span></span><span></span></div>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse " id="navbarSupportedContent22">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto animated fadeInLeft">
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="/urska">Ustvari</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="/oMeni">O meni</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="/kontakt">Kontakt
+            </a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="/katalog">Katalog izdelkov
+            </a>
+          </li>
+        </ul>
+
+    <ul class="navbar-nav ml-auto nav-flex-icons animated fadeInRight">
+      <li class="nav-item ml-4">
+        <a class="nav-link waves-effect waves-light" href="https://www.facebook.com/voleskaccessories">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light" href="https://www.instagram.com/voleskaccessories/">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default slabo"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item dropDowner" href="#">{% block login %}{% endblock login %}</a>
+          <a class="dropdown-item dropDowner" href="#">Another action</a>
+          <a class="dropdown-item dropDowner" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <!-- Collapsible content -->
+    </nav>
+    <!--/.Navbar-->
+    {% block bigBanner %}{% endblock bigBanner%}
+  </header>
+  <main>
+    <div class="container-fluid">
+       <!-- Start your project here-->
+        {% block specifika %} {% endblock specifika %}
+        <!-- End your project here-->
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="page-footer font-small setPink pt-4 wow fadeIn">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase">Footer Content</h5>
+          <p>Here you can use rows and columns to organize your footer content.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../assets/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+       new WOW().init()
+      $('.third-button').on('click', function () {
+        $('.animated-icon3').toggleClass('open');
+      });
+
+
+      });
+
+  </script>
+
+</body>
+</html>

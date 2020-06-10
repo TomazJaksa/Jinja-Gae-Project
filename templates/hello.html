@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+
+{% block title %}Voleska Accesories{% endblock title %}
+{% block css%}<link rel="stylesheet" href="../assets/css/style2.css">{% endblock css%}
+{% block bigBanner%}
+    <div class="view view2 intro-2 fadeIn">
+      <div class="full-bg-img">
+        <div class="mask rgba-blue-strong flex-center">
+          <div class="container text-center white-text wow fadeInUp d-flex flex-column justify-content-center">
+
+            <img src="../assets/img/VoleskaBird.png" class="img-fluid">
+              <!--
+              <p class="h5 px-5 pt-3" >Želim, da so izdelki dostopni, precizni, uporabni za vse priložnosti, unikatni, v posebnih motivih in predvsem, da izvabijo nasmeh na obraz.</p><p class="h5 pt-3">Želim, da se čuti energija.
+Na vsakem koraku pa sledim kvaliteti, kar pomeni: trajnostno, lokalno, primerno za alergike.</p><p class="h5 px-5 pt-3">
+Hvala za potrditve, da sem na pravi poti. ❤️</p>
+               -->
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock bigBanner %}
+{% block specifika %}
+    <div class="row">
+        <div class="col-md-4 p-5 wow fadeInLeft">
+            <!-- Card -->
+            <div class="card">
+
+              <!-- Card image -->
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+              <!-- Card content -->
+              <div class="card-body">
+
+                <!-- Title -->
+                <h4 class="card-title"><a>Card title</a></h4>
+                <!-- Text -->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary">Button</a>
+
+              </div>
+
+            </div>
+         </div>
+        <div class="col-md-4 p-5 wow fadeInLeft">
+            <!-- Card -->
+            <div class="card">
+
+              <!-- Card image -->
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+              <!-- Card content -->
+              <div class="card-body">
+
+                <!-- Title -->
+                <h4 class="card-title"><a>Card title</a></h4>
+                <!-- Text -->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary">Button</a>
+
+              </div>
+
+            </div>
+         </div>
+        <div class="col-md-4 p-5 wow fadeInLeft">
+            <!-- Card -->
+            <div class="card">
+
+              <!-- Card image -->
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+              <!-- Card content -->
+              <div class="card-body">
+
+                <!-- Title -->
+                <h4 class="card-title"><a>Card title</a></h4>
+                <!-- Text -->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary">Button</a>
+
+              </div>
+
+            </div>
+         </div>
+    </div>
+
+{% endblock specifika%}

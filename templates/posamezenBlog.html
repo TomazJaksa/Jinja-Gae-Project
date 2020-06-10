@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+{% block title %}{{blog.naslov}}{% endblock title %}
+{% block specifika %}
+    <section class="mt-5">
+        <div class="row pt-5 my-5 mx-3 justify-content-center">
+        <h1 class=" my-5 text-center">{{blog.naslov}}</h1>
+        <div class="col-sm-12">
+
+
+        </div>
+        <div class="col-12 col-md-4 mb-5 pull-left">
+            <img src="{{blog.slika}}" class="img-fluid z-depth-3 rounded img-responsive" alt="First sample image">
+        </div>
+        <div class="pl-md-5 col-md-8 text-left slabo2">
+            <blockquote class="blockquote">
+              <p class="mb-0">{{blog.povzetek}}</p>
+            </blockquote>
+            <p>{{blog.polnClanek}}</p>
+            <p><strong class="strong">{{blog.bloger}}</strong>, {{blog.datumVnosa}}</p>
+            <a class="btn btn-info btn-md slabo" href="/blog"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj</a>
+        </div>
+    </div>
+    </section>
+
+
+{% endblock specifika%}

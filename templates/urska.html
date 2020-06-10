@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+{% block title %}Urškina stran{% endblock title %}
+{% block specifika %}
+    <!-- izdelek input -->
+    <div class="row d-flex mt-2 mt-md-5 pt-5 mx-md-5">
+
+        <div class="col-md-8 mt-5 wow fadeInLeft">
+            <!-- Default form login -->
+            <form class="text-center z-depth-1-half p-5 slabo" action="/dodajIzdelek" method="POST">
+
+                <p class="h4 mb-4 sofia">Dodajanje novega izdelka</p>
+
+                <!-- ime -->
+                <input type="text" name="ime" class="form-control mb-4" placeholder="Ime izdelka">
+
+                <!-- slika -->
+                <input type="text" name="slika"  class="form-control mb-4" placeholder="URL za sliko izdelka">
+
+                <!-- opis -->
+                <input type="text" name="opis" class="form-control mb-4" placeholder="Opis izdelka">
+
+                <!-- cena -->
+                <input type="number" name="cena"  step="0.01" class="form-control mb-4" placeholder="Cena izdelka">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                     <!-- Default unchecked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="uhani" name="tip" value="uhani">
+                      <label class="custom-control-label" for="uhani">Uhani</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="obesek" name="tip" value="obesek">
+                      <label class="custom-control-label" for="obesek">Obesek</label>
+                    </div>
+
+                    <!-- Default checked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="priponka" name="tip" checked value="priponka">
+                      <label class="custom-control-label" for="priponka">Priponka</label>
+                    </div>
+                </div>
+                    <div class="col-md-6 text-left">
+                     <!-- Default unchecked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="zapestnica" name="tip" value="zapestnica">
+                      <label class="custom-control-label" for="zapestnica">Zapestnica</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="ogrlica" name="tip" value="ogrlica">
+                      <label class="custom-control-label" for="ogrlica">Ogrlica</label>
+                    </div>
+
+                    <!-- Default checked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="prstan" name="tip" value="prstan">
+                      <label class="custom-control-label" for="prstan">Prstan</label>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Dodaj nov izdelek -->
+                <button class="btn btn-info btn-block my-4" type="submit">Dodaj nov izdelek!</button>
+            </form>
+            <!-- Default form login -->
+        </div>
+        <div class="icons col-md-4 mt-5 text-center align-self-center wow fadeInRight"><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/256/Package-add-icon.png" class="img-fluid"></div>
+    </div>
+    <!-- end izdelek input -->
+
+    <!-- blog input-->
+    <div class="row d-flex mt-5 pt-md-5 mt-md-5 mx-md-5 justify-content-between">
+        <div class="icons col-md-4 text-center align-self-center wow fadeInLeft"><img src="http://blog.imonomy.com/wp-content/uploads/2014/05/icon-36401_640.png" class="img-fluid"></div>
+        <div class="col-md-7 html wow fadeInRight">
+            <!-- Default form login -->
+            <form class="text-center z-depth-1-half p-5 slabo" action="/dodajBlog" method="POST">
+
+                <p class="h4 mb-4 sofia">Dodajanje novega Bloga</p>
+
+                <!-- naslov -->
+                <input type="text" name="naslov" class="form-control mb-4" placeholder="Naslov bloga">
+
+                <!-- slika -->
+                <input type="text" name="slika"  class="form-control mb-4" placeholder="URL za sliko bloga">
+
+                <!-- povzetek -->
+                <input type="text" name="povzetek" class="form-control mb-4" placeholder="Povzetek bloga">
+
+                <!-- poln članek -->
+                <div class="form-group">
+                    <label for="polnClanek" class="strong">Vnos celotnega besedila za blog...</label>
+                    <textarea class="form-control rounded-0" name="polnClanek" id="polnClanek" rows="10"></textarea>
+                </div>
+
+                <!-- bloger -->
+                <input type="text" name="bloger" class="form-control mb-4" placeholder="Bloger (format: Ime, Priimek)">
+
+                <!-- Dodaj nov blog -->
+                <button class="btn btn-info btn-block my-4" type="submit">Dodaj nov blog!</button>
+            </form>
+            <!-- Default form login -->
+        </div>
+
+    </div>
+    <!-- end blog input -->
+
+    <!-- obnovi izbrisan izdelek ali blog -->
+    <div class="row d-flex mt-2 mt-md-5 mb-5 justify-content-center">
+        <div class="col-md-8 mt-5 wow fadeIn">
+            <div class="p-5 d-flex justify-content-center flex-column">
+                <!-- Obnovitev -->
+             <div class="col-md-4 mt-5 text-center align-self-center"><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-8/512/Open-folder-delete-icon.png" class="img-fluid"></div>
+             <a href="/obnovi"><button class="btn btn-info btn-block my-4 slabo">Obnovi blog ali izdelek!</button></a>
+
+            </div>
+        </div>
+       </div>
+    <!-- end obnovi izbrisan izdelek ali blog -->
+
+{% endblock specifika%}

@@ -1,0 +1,30 @@
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+
+.view {
+    background: url("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/74887110_1614953235308248_7505298750957420544_o.jpg?_nc_cat=108&_nc_sid=8bfeb9&_nc_ohc=ZL37hWV0RdcAX8c0EGR&_nc_ht=scontent-amt2-1.xx&oh=600407d42386c84f91f20e31e8655956&oe=5EFA44A2")no-repeat center center;
+    background-size: cover;
+}
+
+.view2 {
+    background: url("https://scontent-ams4-1.xx.fbcdn.net/v/t1.0-9/93871714_1790017677801802_5279858504482422784_o.jpg?_nc_cat=109&_nc_sid=8bfeb9&_nc_ohc=89XKNOxokucAX-Pzjrd&_nc_ht=scontent-ams4-1.xx&oh=12a26161a73e04881580b3736e2d669c&oe=5EF8F85B")no-repeat center center;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #EF9674;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #EF9674;
+    }
+}

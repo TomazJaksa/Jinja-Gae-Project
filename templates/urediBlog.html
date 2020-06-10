@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+{% block title %}Uredi blog{% endblock title %}
+{% block specifika %}
+    <div class="row d-flex pt-5 my-5 mx-5 justify-content-between">
+        <div class="icons col-md-4 text-center align-self-center wow fadeInLeft"><img src="http://blog.imonomy.com/wp-content/uploads/2014/05/icon-36401_640.png" class="img-fluid"></div>
+        <div class="col-md-7 html wow fadeInRight mt-5">
+            <!-- Default form login -->
+            <form class="text-center z-depth-1-half p-5 slabo" action="/urediBlog/{{ blog.key.id() }}" method="post">
+
+                <p class="h4 mb-4 sofia">Urejanje Bloga</p>
+
+                <!-- naslov -->
+                <div class="text-left">
+                    <label for="naslov" class="strong">Naslov bloga</label>
+                    <input type="text" id="naslov" name="naslov" class="form-control mb-4" value="{{blog.naslov}}">
+
+                    <!-- slika -->
+                    <label for="slika" class="strong">Slika</label>
+                    <input type="text" id="slika" name="slika"  class="form-control mb-4" value="{{blog.slika}}">
+
+                    <!-- povzetek -->
+                    <label for="povzetek" class="strong">Povzetek</label>
+                    <input type="text" id="povzetek" name="povzetek" class="form-control mb-4" value="{{blog.povzetek}}">
+
+                    <!-- poln članek -->
+                    <div class="form-group">
+                        <label for="polnClanek" class="strong">Vnos celotnega besedila za blog...</label>
+                        <textarea class="form-control rounded-0" name="polnClanek" id="polnClanek" rows="10" >{{blog.polnClanek}}</textarea>
+                    </div>
+
+                    <!-- bloger -->
+                    <input type="text" name="bloger" class="form-control mb-4" value="{{blog.bloger}}">
+                </div>
+
+
+                <!-- Dodaj nov blog -->
+                <button class="btn btn-info btn-block my-4" type="submit">Posodobi blog!</button>
+            </form>
+            <!-- Default form login -->
+        </div>
+
+    </div>
+
+{% endblock specifika%}

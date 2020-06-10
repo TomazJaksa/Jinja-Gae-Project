@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naročila</title>
+</head>
+<body>
+    <h1>Seznam naročil</h1>
+    {% for narocilo in seznam %}
+    <p>{{ narocilo.vnos }} , {{narocilo.datumVnosa}}, <a href="/narocilo/{{narocilo.key.id()}}">Podrobnosti</a></p>
+    {% endfor %}
+</body>
+</html>

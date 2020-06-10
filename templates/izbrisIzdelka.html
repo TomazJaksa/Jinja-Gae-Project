@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Izbris izdelka{% endblock title %}
+{% block specifika %}
+    <div class="row d-flex justify-content-center mt-5 py-md-3">
+        <div class="col-md-8 mb-3 mt-5">
+            <form class="text-center z-depth-1-half px-5 pb-1 slabo" action="/izbrisiIzdelek/{{izdelek.key.id()}}" method="post">
+                <h3 class="pt-5 pb-4">Izbrišem izdelek "{{izdelek.ime}}"?</h3>
+                 <div class="view overlay rounded z-depth-2">
+                    <img src="{{izdelek.slika}}" class="img-fluid imgHeight "/>
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+
+                <button class="btn btn-danger btn-block my-4" type="submit">Izbriši!</button>
+                {% if izdelek.tip =="prstan" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/prstani"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog prstanov</a></div>
+                {% elif izdelek.tip =="priponka" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/priponke"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog priponk</a></div>
+                {% elif izdelek.tip =="obesek" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/obeski"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog obeskov</a></div>
+                {% elif izdelek.tip =="ogrlica" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/ogrlice"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog ogrlic</a></div>
+                {% elif izdelek.tip =="uhani" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/uhani"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog uhanov</a></div>
+                {% elif izdelek.tip =="zapestnica" %}
+                    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/zapestnice"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog zapestnic</a></div>
+                {% endif %}
+            </form>
+        </div>
+     </div>
+{% endblock specifika%}

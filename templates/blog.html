@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock title %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+{% block specifika %}
+   <!-- Section: Blog v.1 -->
+<section class="mt-5 pt-5 px-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Voleskin Blog</h2>
+  <!-- Section description -->
+  <p class="text-center w-responsive mx-auto mb-5 h5 slabo">Vse, kar je brez duše ne šteje in to velja tudi za nakit.
+Barve, oblika in detajli dajo vsakemu kosu karakter.
+Z njimi izražamo, kdo smo, zato je še toliko bolj pomembno, da izberemo tiste, po katerih kliče naše srce.
+To je tudi eno od mojih vodil - s poglobljenim pristopom se posvetiti vsaki stranki in na podlagi njenih želja ustvariti kose, za katere vem, da ne bodo samo stali v omarici, ampak jih bo nova lastnica z veseljem nosila. ✨👑</p>
+
+
+  {% set option = 0 %}
+  {% for blog in blogi|sort(attribute='datumVnosa', reverse=True)%}
+  {% set option = option + 1 %}
+    {% if option == 5 %}
+      {% set option = 1 %}
+    {% endif %}
+
+    {% if option==1 %}
+      <!-- Grid row -->
+      <div class="row wow fadeIn">
+
+        <!-- Grid column -->
+        <div class="col-lg-5">
+
+          <!-- Featured image -->
+          <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+            <img class="img-fluid imgHeight" src="{{blog.slika}}" alt="Sample image">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-7">
+
+          <!-- Category -->
+          <a href="#!" class="green-text">
+            <h6 class="font-weight-bold mb-3"><i class="fas fa-utensils pr-2"></i>Navdih</h6>
+          </a>
+          <!-- Post title -->
+          <h3 class="font-weight-bold mb-3"><strong>{{blog.naslov}}</strong></h3>
+          <!-- Excerpt -->
+          <p class="slabo">{{blog.povzetek}}</p>
+          <!-- Post data -->
+          <p class="slabo">napisala <a><strong class="strong">{{blog.bloger}}</strong></a>, {{blog.datumVnosa}}</p>
+          <!-- Read more button -->
+          <a class="btn btn-success btn-md slabo" href="/blog/{{blog.key.id()}}">Preberi cel članek</a>
+          <a class="btn btn-info btn-md slabo" href="/urediBlog/{{blog.key.id()}}">Uredi članek</a>
+          <a class="btn btn-danger btn-md slabo" href="/izbrisiBlog/{{blog.key.id()}}">Izbriši članek</a>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+      <hr class="my-5">
+
+    {% elif option==2 or option==4 %}
+      <!-- Grid row -->
+      <div class="row wow fadeIn">
+
+        <!-- Grid column -->
+        <div class="col-lg-7">
+
+          <!-- Category -->
+          <a href="#!" class="pink-text">
+            <h6 class="font-weight-bold mb-3"><i class="fas fa-image pr-2"></i>Lifestyle</h6>
+          </a>
+          <!-- Post title -->
+          <h3 class="font-weight-bold mb-3 blogTitles"><strong>{{blog.naslov}}</strong></h3>
+          <!-- Excerpt -->
+          <p class="slabo">{{blog.povzetek}}</p>
+          <!-- Post data -->
+          <p class="slabo">napisala <a><strong class="strong">{{blog.bloger}}</strong></a>, {{blog.datumVnosa}}</p>
+          <!-- Read more button -->
+          <a class="btn btn-pink btn-md slabo"  href="/blog/{{blog.key.id()}}">Preberi cel članek</a>
+          <a class="btn btn-info btn-md slabo" href="/urediBlog/{{blog.key.id()}}">Uredi članek</a>
+          <a class="btn btn-danger btn-md slabo" href="/izbrisiBlog/{{blog.key.id()}}">Izbriši članek</a>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-5 mt-3 mt-md-2 mt-lg-0">
+
+          <!-- Featured image -->
+          <div class="view overlay rounded z-depth-2">
+            <img class="img-fluid imgHeight" src="{{blog.slika}}" alt="Sample image">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+      <hr class="my-5">
+    {% elif option==3 %}
+      <!-- Grid row -->
+      <div class="row wow fadeIn">
+
+    <!-- Grid column -->
+    <div class="col-lg-5">
+
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+        <img class="img-fluid imgHeight" src="{{blog.slika}}" alt="Sample image">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Category -->
+      <a href="#!" class="indigo-text">
+        <h6 class="font-weight-bold mb-3"><i class="fas fa-suitcase pr-2"></i>Travels</h6>
+      </a>
+      <!-- Post title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{blog.naslov}}</strong></h3>
+      <!-- Excerpt -->
+      <p class="slabo">{{blog.povzetek}}</p>
+      <!-- Post data -->
+      <p class="slabo">napisala <a><strong class="strong">{{blog.bloger}}</strong></a>, {{blog.datumVnosa}}</p>
+      <!-- Read more button -->
+      <a class="btn btn-indigo btn-md slabo" href="/blog/{{blog.key.id()}}">Preberi cel članek</a>
+      <a class="btn btn-info btn-md slabo" href="/urediBlog/{{blog.key.id()}}">Uredi članek</a>
+      <a class="btn btn-danger btn-md slabo" href="/izbrisiBlog/{{blog.key.id()}}">Izbriši članek</a>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+      <!-- Grid row -->
+      <hr class="my-5">
+    {% endif %}
+  {% endfor %}
+</section>
+<!-- Section: Blog v.1 -->
+{% endblock specifika%}

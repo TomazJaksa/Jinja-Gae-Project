@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block login%}
+    {% if logiran %}
+            <h1>Hello, {{user.nickname()}}</h1>
+            <p> <a href="{{logout_url}}">Odjava</a></p>
+        {% else %}
+            <h1>Hello, anonimnež...</h1>
+            <p>Prosim prijavi se: <a href="{{login_url}}">Login</a></p>
+        {% endif%}
+
+    {% endblock login %}
+{% block title %}Uredi izdelek{% endblock title %}
+{% block specifika %}
+ <div class="row d-flex mt-2 mb-4 my-md-5 pt-5 mx-md-5">
+
+        <div class="col-md-8 mt-5 wow fadeInLeft">
+            <!-- Default form login -->
+            <form class="text-center z-depth-1-half p-5 slabo" action="/urediIzdelek/{{izdelek.key.id()}}" method="post">
+
+                <p class="h4 mb-4 sofia">Urejanje izdelka</p>
+
+                <!-- ime -->
+                <input type="text" name="ime" class="form-control mb-4" value="{{izdelek.ime}}">
+
+                <!-- slika -->
+                <input type="text" name="slika"  class="form-control mb-4" value="{{izdelek.slika}}">
+
+                <!-- opis -->
+                <input type="text" name="opis" class="form-control mb-4" value="{{izdelek.opis}}">
+
+                <!-- cena -->
+                <input type="number" name="cena"  step="0.01" class="form-control mb-4" value="{{izdelek.cena}}">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                     <!-- Default unchecked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="uhani" name="tip" value="uhani" {% if izdelek.tip =='uhani' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="uhani">Uhani</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="obesek" name="tip" value="obesek" {% if izdelek.tip =='obesek' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="obesek">Obesek</label>
+                    </div>
+
+                    <!-- Default checked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="priponka" name="tip" value="priponka" {% if izdelek.tip =='priponka' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="priponka">Priponka</label>
+                    </div>
+                </div>
+                    <div class="col-md-6 text-left">
+                     <!-- Default unchecked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="zapestnica" name="tip" value="zapestnica" {% if izdelek.tip =='zapestnica' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="zapestnica">Zapestnica</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="ogrlica" name="tip" value="ogrlica" {% if izdelek.tip =='ogrlica' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="ogrlica">Ogrlica</label>
+                    </div>
+
+                    <!-- Default checked -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="prstan" name="tip" value="prstan" {% if izdelek.tip =='prstan' %}{{checked}}{% endif %}>
+                      <label class="custom-control-label" for="prstan">Prstan</label>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Dodaj nov izdelek -->
+                <button class="btn btn-info btn-block my-4" type="submit">Posodobi izdelek!</button>
+            </form>
+            <!-- Default form login -->
+        </div>
+        <div class="icons col-md-4 mt-5 text-center align-self-center wow fadeInRight"><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/256/Package-add-icon.png" class="img-fluid"></div>
+    </div>
+
+{% endblock specifika%}

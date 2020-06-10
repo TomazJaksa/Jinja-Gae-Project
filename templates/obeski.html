@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Obeski{% endblock title %}
+{% block specifika %}
+    <div class="row d-flex justify-content-center mt-5 pt-5">
+        {% for izdelek in izdelki%}
+            {% if izdelek.tip == "obesek" %}
+                <div class="col-sm-6 col-lg-4 col-xl-3 p-5">
+                    <!-- Card -->
+                    <div class="card wow fadeIn">
+
+                      <!-- Card image -->
+                      <img class="card-img-top" src="{{izdelek.slika}}" alt="Card image cap">
+
+                      <!-- Card content -->
+                      <div class="card-body mr-2 pb-0">
+
+                        <!-- Title -->
+                        <h4 class="card-title"><a>{{ izdelek.ime}}</a></h4>
+                        <!-- Text -->
+                        <p class="card-text">{{izdelek.opis}}</p>
+                          <h4 class="card-title"><a>{{ izdelek.cena}} €</a></h4>
+                        <!-- Button -->
+                        <a href="#" class="btn btn-primary btn-md slabo mb-4 fullWidth mt-3">Button</a>
+                        <a class="btn btn-info btn-md mb-4 slabo fullWidth" href="/urediIzdelek/{{izdelek.key.id()}}">Uredi</a>
+                        <a class="btn btn-danger btn-md mb-4 slabo fullWidth" href="/izbrisiIzdelek/{{izdelek.key.id()}}">Izbriši</a>
+
+                      </div>
+                    </div>
+                    <!-- Card -->
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row d-flex align-content-baseline justify-content-center my-5 wow fadeIn"><a class="btn btn-info btn-md slabo" href="/katalog"><i class='fas fa-angle-left' style='font-size:12px'></i><i class='fas fa-angle-left pr-2' style='font-size:12px'></i>Nazaj na katalog</a></div>
+
+{% endblock specifika%}
